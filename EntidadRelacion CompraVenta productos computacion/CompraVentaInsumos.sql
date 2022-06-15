@@ -1,18 +1,9 @@
---
--- ER/Studio 8.0 SQL Code Generation
--- Company :      gerardo
--- Project :      CompraVentaInsumosCoder.DM1
--- Author :       gerardo
---
--- Date Created : Saturday, June 11, 2022 15:28:12
--- Target DBMS : MySQL 5.x
---
--- CREATE SCHEMA 
+-- CREAR SCHEMA 
 CREATE SCHEMA `compraventainsumosromerouro`;
 USE `compraventainsumosromerouro`;
 
 -- 
--- TABLE: Clientes 
+-- TABLA: Clientes 
 --
 
 CREATE TABLE Clientes(
@@ -29,7 +20,7 @@ CREATE TABLE Clientes(
 
 
 -- 
--- TABLE: Compras 
+-- TABLA: Compras 
 --
 
 CREATE TABLE Compras(
@@ -44,7 +35,7 @@ CREATE TABLE Compras(
 
 
 -- 
--- TABLE: ComprasProductos 
+-- TABLA: ComprasProductos 
 --
 
 CREATE TABLE ComprasProductos(
@@ -59,7 +50,7 @@ CREATE TABLE ComprasProductos(
 
 
 -- 
--- TABLE: Empleados 
+-- TABLA: Empleados 
 --
 
 CREATE TABLE Empleados(
@@ -77,7 +68,7 @@ CREATE TABLE Empleados(
 
 
 -- 
--- TABLE: Productos 
+-- TABLA: Productos 
 --
 
 CREATE TABLE Productos(
@@ -93,7 +84,7 @@ CREATE TABLE Productos(
 
 
 -- 
--- TABLE: Proveedores 
+-- TABLA: Proveedores 
 --
 
 CREATE TABLE Proveedores(
@@ -108,7 +99,7 @@ CREATE TABLE Proveedores(
 
 
 -- 
--- TABLE: Roles 
+-- TABLA: Roles 
 --
 
 CREATE TABLE Roles(
@@ -122,7 +113,7 @@ CREATE TABLE Roles(
 
 
 -- 
--- TABLE: Rubros 
+-- TABLA: Rubros 
 --
 
 CREATE TABLE Rubros(
@@ -136,7 +127,7 @@ CREATE TABLE Rubros(
 
 
 -- 
--- TABLE: Ventas 
+-- TABLA: Ventas 
 --
 
 CREATE TABLE Ventas(
@@ -151,7 +142,7 @@ CREATE TABLE Ventas(
 
 
 -- 
--- TABLE: VentasProductos 
+-- TABLA: VentasProductos 
 --
 
 CREATE TABLE VentasProductos(
@@ -166,170 +157,170 @@ CREATE TABLE VentasProductos(
 
 
 -- 
--- INDEX: UI_Email 
+-- INDEX: UniqueIndex_Email 
 --
 
 CREATE UNIQUE INDEX UI_Email ON Clientes(Email)
 ;
 -- 
--- INDEX: Ref215 
+-- INDEX: RefidEmpleado 
 --
 
-CREATE INDEX Ref215 ON Compras(idEmpleado)
+CREATE INDEX RefidEmpleado ON Compras(idEmpleado)
 ;
 -- 
--- INDEX: Ref819 
+-- INDEX: RefidProveedor 
 --
 
-CREATE INDEX Ref819 ON Compras(idProveedor)
+CREATE INDEX RefidProveedor ON Compras(idProveedor)
 ;
 -- 
--- INDEX: Ref97 
+-- INDEX: RefComprasProductos 
 --
 
-CREATE INDEX Ref97 ON ComprasProductos(idProducto)
+CREATE INDEX RefComprasProductos ON ComprasProductos(idProducto)
 ;
 -- 
--- INDEX: Ref38 
+-- INDEX: RefidCompras 
 --
 
-CREATE INDEX Ref38 ON ComprasProductos(idCompra)
+CREATE INDEX RefidCompras ON ComprasProductos(idCompra)
 ;
 -- 
--- INDEX: UI_Usuario 
+-- INDEX: UniqueIndex_Usuario 
 --
 
-CREATE UNIQUE INDEX UI_Usuario ON Empleados(Usuario)
+CREATE UNIQUE INDEX UniqueIndex_Usuario ON Empleados(Usuario)
 ;
 -- 
--- INDEX: Ref12 
+-- INDEX: RefEmpleadoidRol 
 --
 
-CREATE INDEX Ref12 ON Empleados(idRol)
+CREATE INDEX RefEmpleadoidRol ON Empleados(idRol)
 ;
 -- 
--- INDEX: UI_Producto 
+-- INDEX: UniqueIndex_Producto 
 --
 
-CREATE UNIQUE INDEX UI_Producto ON Productos(producto)
+CREATE UNIQUE INDEX UniqueIndex_Producto ON Productos(producto)
 ;
 -- 
--- INDEX: Ref104 
+-- INDEX: RefProductosidRubro 
 --
 
-CREATE INDEX Ref104 ON Productos(idRubro)
+CREATE INDEX RefProductosidRubro ON Productos(idRubro)
 ;
 -- 
--- INDEX: UI_Proveedor 
+-- INDEX: UniqueIndex_Proveedor 
 --
 
-CREATE UNIQUE INDEX UI_Proveedor ON Proveedores(Proveedor)
+CREATE UNIQUE INDEX UniqueIndex_Proveedor ON Proveedores(Proveedor)
 ;
 -- 
--- INDEX: UI_Rubro 
+-- INDEX: UniqueIndex_Rubro 
 --
 
-CREATE UNIQUE INDEX UI_Rubro ON Rubros(Rubro)
+CREATE UNIQUE INDEX UniqueIndex_Rubro ON Rubros(Rubro)
 ;
 -- 
--- INDEX: Ref211 
+-- INDEX: RefVentasidEmpleado 
 --
 
-CREATE INDEX Ref211 ON Ventas(idEmpleado)
+CREATE INDEX RefVentasidEmpleado ON Ventas(idEmpleado)
 ;
 -- 
--- INDEX: Ref420 
+-- INDEX: RefVentasidCliente 
 --
 
-CREATE INDEX Ref420 ON Ventas(idCliente)
+CREATE INDEX RefVentasidCliente ON Ventas(idCliente)
 ;
 -- 
--- INDEX: Ref95 
+-- INDEX: RefVentasidProductos 
 --
 
-CREATE INDEX Ref95 ON VentasProductos(idProducto)
+CREATE INDEX RefVentasidProductos ON VentasProductos(idProducto)
 ;
 -- 
--- INDEX: Ref56 
+-- INDEX: RefVentas 
 --
 
-CREATE INDEX Ref56 ON VentasProductos(idVenta)
+CREATE INDEX RefVentas ON VentasProductos(idVenta)
 ;
 -- 
--- TABLE: Compras 
+-- Tabla: Compras 
 --
 
-ALTER TABLE Compras ADD CONSTRAINT RefEmpleados15 
+ALTER TABLE Compras ADD CONSTRAINT Comp_empl
     FOREIGN KEY (idEmpleado)
     REFERENCES Empleados(idEmpleado)
 ;
 
-ALTER TABLE Compras ADD CONSTRAINT RefProveedores19 
+ALTER TABLE Compras ADD CONSTRAINT Comp_prov 
     FOREIGN KEY (idProveedor)
     REFERENCES Proveedores(idProveedor)
 ;
 
 
 -- 
--- TABLE: ComprasProductos 
+-- Tabla: ComprasProductos 
 --
 
-ALTER TABLE ComprasProductos ADD CONSTRAINT RefProductos7 
+ALTER TABLE ComprasProductos ADD CONSTRAINT Cp_prod 
     FOREIGN KEY (idProducto)
     REFERENCES Productos(idProducto)
 ;
 
-ALTER TABLE ComprasProductos ADD CONSTRAINT RefCompras8 
+ALTER TABLE ComprasProductos ADD CONSTRAINT Cp_comp 
     FOREIGN KEY (idCompra)
     REFERENCES Compras(idCompra)
 ;
 
 
 -- 
--- TABLE: Empleados 
+-- Tabla: Empleados 
 --
 
-ALTER TABLE Empleados ADD CONSTRAINT RefRoles2 
+ALTER TABLE Empleados ADD CONSTRAINT Empl_rol 
     FOREIGN KEY (idRol)
     REFERENCES Roles(idRol)
 ;
 
 
 -- 
--- TABLE: Productos 
+-- Tabla: Productos 
 --
 
-ALTER TABLE Productos ADD CONSTRAINT RefRubros4 
+ALTER TABLE Productos ADD CONSTRAINT Prod_rubro 
     FOREIGN KEY (idRubro)
     REFERENCES Rubros(idRubro)
 ;
 
 
 -- 
--- TABLE: Ventas 
+-- Tabla: Ventas 
 --
 
-ALTER TABLE Ventas ADD CONSTRAINT RefEmpleados11 
+ALTER TABLE Ventas ADD CONSTRAINT Venta_Empl
     FOREIGN KEY (idEmpleado)
     REFERENCES Empleados(idEmpleado)
 ;
 
-ALTER TABLE Ventas ADD CONSTRAINT RefClientes20 
+ALTER TABLE Ventas ADD CONSTRAINT Venta_Cli 
     FOREIGN KEY (idCliente)
     REFERENCES Clientes(idCliente)
 ;
 
 
 -- 
--- TABLE: VentasProductos 
+-- Tabla: VentasProductos 
 --
 
-ALTER TABLE VentasProductos ADD CONSTRAINT RefProductos5 
+ALTER TABLE VentasProductos ADD CONSTRAINT Vp_prod 
     FOREIGN KEY (idProducto)
     REFERENCES Productos(idProducto)
 ;
 
-ALTER TABLE VentasProductos ADD CONSTRAINT RefVentas6 
+ALTER TABLE VentasProductos ADD CONSTRAINT Vp_venta 
     FOREIGN KEY (idVenta)
     REFERENCES Ventas(idVenta)
 ;
