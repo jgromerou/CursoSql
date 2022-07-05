@@ -1,0 +1,15 @@
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (1,4,'Disco WD 1Tb',4800.00,8000.00,50,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (2,1,'Impresora Epson Tx241',9000.00,15000.00,40,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (3,2,'Mouse Genius Dx300',1800.00,3000.00,30,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (4,2,'Mouse Logitech G605',4200.00,7000.00,40,'B');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (5,4,'Disco WD Green 480Gb SSD',6000.00,10000.00,55,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (6,5,'Memoria RAM 2GB HyperX Fury',3600.00,6000.00,50,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (7,6,'Monitor 22\" Samsung Dx3',24000.00,40000.00,30,'B');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (8,12,'Pendrive 32 Gb Kingston d300',1200.00,2000.00,45,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (9,6,'Placa de Video GTX 3060 OC',96000.00,160000.00,10,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (10,3,'Teclado Genius KB300',3600.00,6000.00,25,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (11,11,'Notebook HP 15\'6 Intel I3 256 Gb SSD 16 Gb RAM',120000.00,200000.00,6,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (12,5,'Memoria RAM 8GB Kingston ValueRAM DDR3',3000.00,5000.00,20,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (13,12,'Pendrive 16 Gb Kingston x40',7200.00,12000.00,25,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (14,6,'Placa de Video GT 1060 4 Gb',30000.18,50000.30,30,'A');
+INSERT INTO `Productos` (`idProducto`,`idRubro`,`producto`,`PrecioCosto`,`PrecioVenta`,`Stock`,`Estado`) VALUES (15,14,'Modem Tp-Link 300Mb WR-850RE',2400.30,4000.50,40,'A');

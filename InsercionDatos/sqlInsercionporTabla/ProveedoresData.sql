@@ -1,0 +1,15 @@
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (1,'Tucumán Ofertas','20334455663','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (2,'Exo Soluciones Informáticas','20151617483','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (3,'Ceven','27234242221','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (4,'Computronic SRL','20345234241','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (5,'Nh Computación','20342532523','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (6,'Compuciti','32423423424','B');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (7,'Tecnologic','32423424241','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (8,'Amazon','34324324324','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (9,'Alum Computación','20343242352','B');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (10,'SYSCOM','20345324324','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (11,'Compumaq','22343243242','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (12,'Punto Com punto ar','33234234234','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (13,'Pronet','23423532522','A');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (14,'Mundo PC','22343242555','B');
+INSERT INTO `Proveedores` (`idProveedor`,`Proveedor`,`CUIT`,`Estado`) VALUES (15,'Mercado Libre','22342343245','A');

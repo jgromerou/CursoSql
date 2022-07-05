@@ -1,0 +1,15 @@
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (1,'Impresora','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (2,'Mouse','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (3,'Teclado','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (4,'Discos Rigidos','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (5,'Memoria RAM','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (6,'Placa de Video','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (7,'Monitor','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (8,'Cables VGA','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (9,'Cables HDMI','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (10,'Cargador Notebook','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (11,'Notebook','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (12,'Pendrive','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (13,'Procesador','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (14,'Modem','A');
+INSERT INTO `Rubros` (`idRubro`,`Rubro`,`Estado`) VALUES (15,'Placa de Red','A');

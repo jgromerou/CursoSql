@@ -1,0 +1,15 @@
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (1,2,'Gabriela','Gouth','sgouth0','Y4i5R8Z1j','2022-08-17 15:34:00');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (2,2,'Carlos','Nurny','cnurny1','hx8gPFx0uz','2022-06-29 15:33:02');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (3,2,'Benjamin','Shafier','bshafier2','1rYHuyPpSdv','2022-09-06 13:02:04');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (4,2,'Bautista','Semerad','bsemerad3','yiZSrbL6','2022-04-03 14:02:10');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (5,2,'Blanca','Yellep','byellep4','BgEnqQ','2022-01-18 10:02:21');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (6,2,'Juan','Pentony','jpentony5','4rcZ47Mc','2022-12-12 08:01:02');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (7,2,'Ricardo','Bastone','rbastone6','3L9b2G','2022-10-10 09:02:30');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (8,2,'Liam','Hudson','lhudson7','qSWJGXUsIl','2022-11-07 11:03:06');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (9,2,'Ezequiel','Armer','earmer8','vA8K2ZU8db','2022-04-02 14:03:05');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (10,2,'Florencia','Tunsley','ftunsley9','YsJW8q7N4a','2022-04-13 13:03:07');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (11,2,'Juan','Pentony','jpentony53','4rcZ47Mc','2022-12-12 14:15:03');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (12,2,'Ricardo Jóse','Bastone perez','rbastone63','3L9b2G','2022-10-10 13:11:30');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (13,2,'Liam Nicole','Hudson','lhudson73','qSWJGXUsIl','2022-11-07 11:20:16');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (14,2,'Ezequiel Jose','Armer','earmer83','vA8K2ZU8db','2022-04-02 10:50:05');
+INSERT INTO `Empleados` (`idEmpleado`,`idRol`,`Nombres`,`Apellidos`,`Usuario`,`Password`,`FechaIngreso`) VALUES (15,1,'Juan','Romero','jromero15','esJW8q7N4a','2022-01-29 10:10:20');

@@ -1,0 +1,15 @@
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (1,'Cort','Cogle','ccogle0@last.fm','269-433-3884','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (2,'Petronilla','Foro','pforo1@chicagotribune.com','265-763-9016','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (3,'Adeline','Beattie','abeattie2@alexa.com','513-698-3743','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (4,'Ruggiero','Rosenfeld','rrosenfeld3@jiathis.com','226-126-2672','B');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (5,'Bernetta','Crews','bcrews4@wikimedia.org','807-436-6134','B');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (6,'Flory','MacMaster','fmacmaster5@wp.com','701-788-0167','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (7,'Trey','Patkin','tpatkin6@tamu.edu','360-844-7252','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (8,'Dimitry','Markel','dmarkel7@google.co.uk','140-838-7270','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (9,'Roxanna','Mara','rmara8@cornell.edu','764-148-6397','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (10,'Ailina','Gamage','agamage9@ocn.ne.jp','390-327-2429','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (11,'Cully','Cocking','ccockinga@va.gov','748-271-1565','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (12,'Correy','Wortt','cworttb@gravatar.com','287-364-0543','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (13,'Nikolaus','Tutin','ntutinc@newyorker.com','941-689-1061','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (14,'Renate','Tetlow','rtetlowd@slate.com','666-317-3679','A');
+INSERT INTO `Clientes` (`idCliente`,`Nombres`,`Apellidos`,`Email`,`Telefono`,`Estado`) VALUES (15,'Livvy','Stoeckle','lstoecklee@sakura.ne.jp','300-994-0533','A');

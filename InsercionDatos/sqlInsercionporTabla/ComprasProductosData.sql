@@ -1,0 +1,15 @@
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (1,1,4800.00,2);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (1,3,1800.00,3);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (1,5,6000.00,1);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (1,6,3600.00,4);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (2,1,4800.00,4);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (3,1,4800.00,3);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (3,4,4200.00,2);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (3,6,3600.00,5);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (3,10,3600.00,7);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (4,1,4800.00,4);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (4,10,3600.00,6);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (4,11,120000.00,2);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (5,1,4800.00,3);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (5,10,3600.00,2);
+INSERT INTO `ComprasProductos` (`idCompra`,`idProducto`,`Precio`,`Cantidad`) VALUES (5,15,2400.30,4);
