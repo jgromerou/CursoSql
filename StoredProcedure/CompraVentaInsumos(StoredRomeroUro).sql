@@ -595,12 +595,6 @@ CREATE DEFINER=`root`@`%` PROCEDURE `sp_delete_rubro`(
 	IN pidrubro CHAR(8)
 )
 BEGIN
-	/*DECLARE ultimoIDmasuno smallint;
-	SET @clausula = concat('SELECT MAX(idRubro) FROM Rubros INTO @ultimoID');
-	PREPARE runSQL FROM @clausula;
-    EXECUTE runSQL;
-    DEALLOCATE PREPARE runSQL;
-    set ultimoIDmasuno=@ultimoID+1;**/
    SET @ftexsql=CONCAT('DELETE FROM Rubros WHERE idRubro=(',pidrubro,')');
 	PREPARE fordsql FROM @ftexsql;
     EXECUTE fordsql;
