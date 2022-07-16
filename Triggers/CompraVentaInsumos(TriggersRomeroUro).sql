@@ -613,3 +613,32 @@ call compraventainsumosromerouro.sp_insert_rubro('SILLA GAMER', 'B');
 -- Verificamos el 3° Stored Procedure
 call compraventainsumosromerouro.sp_delete_rubro('15');
  
+/*Desafío Triggers Romero Uro*/
+/*1° Trigger: Permite controlar que la cantidad del producto a vender*/
+/*no supere la cantidad de Stock y lance una señal de error*/
+/*Y en el caso que no supere se hace el decremento en Stock*/
+DROP TRIGGER IF EXISTS restacantidadstock;
+DELIMITER $$
+CREATE TRIGGER BEF_INS_ventasproductos
+        BEFORE INSERT
+        ON ventasproductos
+        FOR EACH ROW 
+        BEGIN
+        /*DECLARACION DE VARIABLES*/
+        DECLARE _cantidadviejo INTEGER;
+        DECLARE _cantidadnueva INTEGER;
+        SELECT Stock INTO _cantidadviejo FROM productos WHERE idProducto = new.idProducto; 
+        /*SET Y CONSULTAS*/
+        SET _cantidadnueva = _cantidadviejo - new.Cantidad; 
+        IF (_cantidadnueva<0) then
+            SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'No existe esa cantidad de productos en el stock';
+		ELSE
+        /*MODIFICAR VALOR DE STOCK DEL PRODUCTO*/
+        UPDATE productos SET Stock=_cantidadviejo - new.Cantidad;
+        END if;
+END$$ 
+
+/* Verificamos 1° Trigger */
+-- INSERT INTO ventasproductos (idVenta,idProducto,Precio,Cantidad) VALUES ('6', '3', '7500', '25');
+-- INSERT INTO ventasproductos (idVenta,idProducto,Precio,Cantidad) VALUES ('6', '3', '7500', '1000');
