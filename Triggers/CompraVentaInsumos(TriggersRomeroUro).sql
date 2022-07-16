@@ -617,7 +617,7 @@ call compraventainsumosromerouro.sp_delete_rubro('15');
 /*1° Trigger: Permite controlar que la cantidad del producto a vender*/
 /*no supere la cantidad de Stock y lance una señal de error*/
 /*Y en el caso que no supere se hace el decremento en Stock*/
-DROP TRIGGER IF EXISTS restacantidadstock;
+DROP TRIGGER IF EXISTS BEF_INS_ventasproductos;
 DELIMITER $$
 CREATE TRIGGER BEF_INS_ventasproductos
         BEFORE INSERT
@@ -635,7 +635,7 @@ CREATE TRIGGER BEF_INS_ventasproductos
             SET MESSAGE_TEXT = 'No existe esa cantidad de productos en el stock';
 		ELSE
         /*MODIFICAR VALOR DE STOCK DEL PRODUCTO*/
-        UPDATE productos SET Stock=_cantidadviejo - new.Cantidad;
+        UPDATE productos SET Stock=_cantidadviejo - new.Cantidad WHERE idProducto = new.idProducto;
         END if;
 END$$ 
 
