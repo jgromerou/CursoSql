@@ -650,6 +650,7 @@ call compraventainsumosromerouro.sp_delete_rubro('15');
 /*1° Trigger: Permite controlar que la cantidad del producto a vender*/
 /*no supere la cantidad de Stock y lance una señal de error*/
 /*Y sino se hace el decremento en Stock*/
+/*Guardar nueva venta en la tabla movimientoVentasProductos*/
 DROP TRIGGER IF EXISTS BEF_INS_VentasProductos_movimientoVentasProductos;
 DELIMITER $$
 CREATE TRIGGER BEF_INS_ventasproductos_movimientoVentasProductos
@@ -677,7 +678,7 @@ CREATE TRIGGER BEF_INS_ventasproductos_movimientoVentasProductos
         END if;
 END$$ 
 
-/*2° Trigger: Permite auditar a los nuevo clientes en la*/
+/*2° Trigger: Permite auditar a un nuevo cliente en la*/
 /*tabla AuditoriaClientes*/
 DROP TRIGGER IF EXISTS AFT_INS_Clientes_AuditoriaClientes;
 DELIMITER $$
