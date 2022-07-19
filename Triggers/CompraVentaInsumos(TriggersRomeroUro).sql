@@ -156,7 +156,42 @@ CREATE TABLE VentasProductos(
 )ENGINE=INNODB
 ;
 
+/*Crear Tabla AuditoriaClientes*/
+CREATE TABLE `AuditoriaClientes` (
+  `idAuditoriaCliente` int NOT NULL AUTO_INCREMENT,
+  `NombresAnteriores` varchar(40) DEFAULT NULL,
+  `ApellidosAnteriores` varchar(40) DEFAULT NULL,
+  `EmailAnterior` varchar(50) DEFAULT NULL,
+  `TelefonoAnterior` varchar(15) DEFAULT NULL,
+  `NombresNuevos` varchar(40) DEFAULT NULL,
+  `ApellidosNuevos` varchar(40) DEFAULT NULL,
+  `EmailNuevo` varchar(50) DEFAULT NULL,
+  `TelefonoNuevo` varchar(15) DEFAULT NULL,
+  `UsuarioCreacion` varchar(40) DEFAULT NULL,
+  `FechaCreacion` date DEFAULT NULL,
+  `HoraCreacion` time DEFAULT NULL,
+  `UsuarioModificacion` varchar(40) DEFAULT NULL,  
+  `FechaModificacion` date DEFAULT NULL,
+  `HoraModificacion` time DEFAULT NULL,
+  `Operacion` varchar(10) NOT NULL,
+  `idCliente` int NOT NULL,
+  PRIMARY KEY (`idAuditoriaCliente`)
+) ENGINE=InnoDB;
 
+/*Crear Tabla MovimientoVentasProductos*/
+CREATE TABLE `MovimientoVentasProductos` (
+  `idVenta` bigint NOT NULL,
+  `idProducto` int NOT NULL,
+  `StockAnterior` smallint NOT NULL,
+  `Precio` decimal(12,2) NOT NULL,
+  `Cantidad` smallint NOT NULL,
+  `StockNuevo` smallint NOT NULL,
+  `Usuario` varchar(40) DEFAULT NULL,  
+  `FechaVenta` date DEFAULT NULL,
+  `HoraVenta` time DEFAULT NULL,
+  `Operacion` varchar(10) NOT NULL,
+  PRIMARY KEY (`idVenta`,`idProducto`)
+) ENGINE=InnoDB;
 
 -- 
 -- INDEX: UniqueIndex_Email 
@@ -605,29 +640,27 @@ END$$
 -- Verificamos el 1° Stored Procedure
 call compraventainsumosromerouro.sp_get_empleados_ordenamiento('Apellidos', 'DESC');
 call compraventainsumosromerouro.sp_get_empleados_ordenamiento('Nombres', 'ASC');
-
 -- Verificamos el 2° Stored Procedure
 call compraventainsumosromerouro.sp_insert_rubro('ESCRITORIO DE PC', 'A');
 call compraventainsumosromerouro.sp_insert_rubro('SILLA GAMER', 'B');
-
 -- Verificamos el 3° Stored Procedure
 call compraventainsumosromerouro.sp_delete_rubro('15');
  
 /*Desafío Triggers Romero Uro*/
 /*1° Trigger: Permite controlar que la cantidad del producto a vender*/
 /*no supere la cantidad de Stock y lance una señal de error*/
-/*Y en el caso que no supere se hace el decremento en Stock*/
-DROP TRIGGER IF EXISTS BEF_INS_ventasproductos;
+/*Y sino se hace el decremento en Stock*/
+DROP TRIGGER IF EXISTS BEF_INS_VentasProductos_movimientoVentasProductos;
 DELIMITER $$
-CREATE TRIGGER BEF_INS_ventasproductos
+CREATE TRIGGER BEF_INS_ventasproductos_movimientoVentasProductos
         BEFORE INSERT
-        ON ventasproductos
+        ON VentasProductos
         FOR EACH ROW 
         BEGIN
         /*DECLARACION DE VARIABLES*/
         DECLARE _cantidadviejo INTEGER;
         DECLARE _cantidadnueva INTEGER;
-        SELECT Stock INTO _cantidadviejo FROM productos WHERE idProducto = new.idProducto; 
+        SELECT Stock INTO _cantidadviejo FROM Productos WHERE idProducto = new.idProducto; 
         /*SET Y CONSULTAS*/
         SET _cantidadnueva = _cantidadviejo - new.Cantidad; 
         IF (_cantidadnueva<0) then
@@ -635,10 +668,72 @@ CREATE TRIGGER BEF_INS_ventasproductos
             SET MESSAGE_TEXT = 'No existe esa cantidad de productos en el stock';
 		ELSE
         /*MODIFICAR VALOR DE STOCK DEL PRODUCTO*/
-        UPDATE productos SET Stock=_cantidadviejo - new.Cantidad WHERE idProducto = new.idProducto;
+        UPDATE Productos SET Stock=_cantidadviejo - new.Cantidad WHERE idProducto = new.idProducto;
+        /*GUARDAR MOVIMIENTO DE LA VENTA DE PRODUCTO*/
+        INSERT INTO MovimientoVentasProductos(idVenta,idProducto,StockAnterior,Precio,Cantidad,
+        StockNuevo,Usuario,FechaVenta,HoraVenta,Operacion) 
+        VALUES (NEW.idVenta,NEW.idProducto,_cantidadviejo,NEW.Precio,NEW.Cantidad,
+        _cantidadnueva,CURRENT_USER,CURRENT_DATE(),CURRENT_TIME(),'NUEVAVENTA');
         END if;
 END$$ 
 
+/*2° Trigger: Permite auditar a los nuevo clientes en la*/
+/*tabla AuditoriaClientes*/
+DROP TRIGGER IF EXISTS AFT_INS_Clientes_AuditoriaClientes;
+DELIMITER $$
+CREATE TRIGGER AFT_INS_Clientes_AuditoriaClientes
+        AFTER INSERT
+        ON Clientes
+        FOR EACH ROW 
+        BEGIN
+        INSERT INTO AuditoriaClientes(NombresNuevos,ApellidosNuevos,EmailNuevo,
+        TelefonoNuevo,UsuarioCreacion,FechaCreacion,HoraCreacion,Operacion,idCliente) 
+        VALUES (NEW.Nombres,NEW.Apellidos,NEW.Email,NEW.Telefono,CURRENT_USER,
+        CURRENT_DATE(),CURRENT_TIME(),'NUEVO',NEW.idCliente);
+END$$ 
+
+/*3° Trigger: Permite auditar modificaciones a un cliente en la*/
+/*tabla AuditoriaClientes*/
+DROP TRIGGER IF EXISTS BEF_UPD_Clientes_AuditoriaClientes;
+DELIMITER $$
+CREATE TRIGGER BEF_UPD_Clientes_AuditoriaClientes
+        BEFORE UPDATE
+        ON Clientes
+        FOR EACH ROW 
+        BEGIN
+        INSERT INTO AuditoriaClientes(NombresAnteriores,ApellidosAnteriores,
+        TelefonoAnterior,EmailAnterior,
+        NombresNuevos,ApellidosNuevos,EmailNuevo,
+        TelefonoNuevo,UsuarioModificacion,FechaModificacion,HoraModificacion,
+        Operacion,idCliente) 
+        VALUES (OLD.Nombres,OLD.Apellidos,NEW.Telefono,NEW.Email,
+        NEW.Nombres,NEW.Apellidos,NEW.Email,NEW.Telefono,CURRENT_USER,
+        CURRENT_DATE(),current_time(),'EDITAR',NEW.idCliente);
+END$$ 
+
+/*4° Trigger: Permite auditar el borrado de un cliente en la*/
+/*tabla AuditoriaClientes*/
+DROP TRIGGER IF EXISTS AFT_DEL_Clientes_AuditoriaClientes;
+DELIMITER $$
+CREATE TRIGGER AFT_DEL_Clientes_AuditoriaClientes
+        AFTER DELETE
+        ON Clientes
+        FOR EACH ROW 
+        BEGIN
+        INSERT INTO AuditoriaClientes(NombresAnteriores,ApellidosAnteriores,
+        Operacion,idCliente) 
+        VALUES (OLD.Nombres,OLD.Apellidos,
+        'BORRAR',OLD.idCliente);
+END$$
+
+/* Verificamos 2° Trigger */
+INSERT INTO Clientes (idCliente,Nombres,Apellidos,Email,Telefono,Estado) VALUES ('16','adrian','rodriguez','arodriguez@gmail.com','323-222-2222','A');
+INSERT INTO Clientes (idCliente,Nombres,Apellidos,Email,Telefono,Estado) VALUES ('17','jose','perea','jperea@gmail.com','5435-353-345','A');
+/* Verificamos 3° Trigger */
+UPDATE Clientes SET Apellidos = 'rodriguez juarez' WHERE (idCliente = '16');
+UPDATE Clientes SET Nombres = 'josé luis' WHERE (idCliente = '17');
+/*Verificamos 4° Trigger*/
+DELETE FROM Clientes WHERE (idCliente = '16');
 /* Verificamos 1° Trigger */
--- INSERT INTO ventasproductos (idVenta,idProducto,Precio,Cantidad) VALUES ('6', '3', '7500', '25');
--- INSERT INTO ventasproductos (idVenta,idProducto,Precio,Cantidad) VALUES ('6', '3', '7500', '1000');
+INSERT INTO VentasProductos (idVenta,idProducto,Precio,Cantidad) VALUES ('6', '3', '7500', '25');
+INSERT INTO VentasProductos (idVenta,idProducto,Precio,Cantidad) VALUES ('6', '3', '7500', '1000');
