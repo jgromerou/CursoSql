@@ -1,6 +1,6 @@
-/*Desafió Sentencias*/
+/*Desafió Sentencias - Romero Uro*/
 use mysql;
-SELECT * FROM user;
+-- SELECT * FROM user;
 
 /*Creación de usuarios nuevos*/
 CREATE USER usuarioLectura@127.0.0.1 IDENTIFIED BY 'Clave123!';
