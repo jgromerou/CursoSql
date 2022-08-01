@@ -1,5 +1,20 @@
 --Desafío Backup - Romero Uro
 
+/* Nombres de Tablas que hice backup */
+/*AuditoriaClientes
+Clientes
+Compras
+ComprasProductos
+Empleados
+MovimientoVentasProductos
+Productos
+Proveedores
+Roles
+Rubros
+Ventas
+VentasProductos
+*/
+
 -- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: compraventainsumosromerouro
